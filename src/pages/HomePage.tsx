@@ -25,7 +25,7 @@ const HomePage = () => {
       <Box>
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
           component={RouterLink}
           to="/movies"
           sx={{ marginRight: 2 }}

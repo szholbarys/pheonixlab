@@ -71,13 +71,13 @@ const MovieCard = observer(({ movie }: { movie: any }) => {
             to={`/movies/${movie.imdbID}`}
             style={{ textDecoration: "none" }}
           >
-            <Button variant="outlined" color="primary">
+            <Button variant="outlined" color="secondary">
               Details
             </Button>
           </Link>
           <IconButton
             onClick={handleToggleFavorite}
-            color="error"
+            color="secondary"
             aria-label="add to favorites"
           >
             {isFavorite ? <Favorite /> : <FavoriteBorder />}

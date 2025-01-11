@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="secondary">
       <Toolbar
         sx={{
           display: "flex",

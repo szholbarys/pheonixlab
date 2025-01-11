@@ -66,7 +66,7 @@ const MovieDetail = observer(() => {
               <Typography variant="h4" component="h1" gutterBottom>
                 {Title} ({Year})
               </Typography>
-              <IconButton onClick={handleToggleFavorite} color="error">
+              <IconButton onClick={handleToggleFavorite} color="secondary">
                 {isFavorite ? <Favorite /> : <FavoriteBorder />}
               </IconButton>
             </Box>
@@ -85,7 +85,7 @@ const MovieDetail = observer(() => {
             <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
               <Chip
                 label={`IMDb: ${imdbRating}`}
-                color="primary"
+                color="secondary"
                 sx={{ mr: 1 }}
               />
             </Box>
