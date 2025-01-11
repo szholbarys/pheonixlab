@@ -23,7 +23,7 @@ const MovieDetail = observer(() => {
   if (!movieStore.currentMovie)
     return (
       <Container>
-        <Typography >Loading...</Typography>
+        <Typography>Loading...</Typography>
       </Container>
     );
 
@@ -91,6 +91,33 @@ const MovieDetail = observer(() => {
             </Box>
           </Grid>
         </Grid>
+        <Box sx={{ mt: 4 }}>
+          <Typography variant="h5" gutterBottom>
+            Trailer
+          </Typography>
+          <Box
+            sx={{
+              position: "relative",
+              paddingTop: "56.25%",
+            }}
+          >
+            <iframe
+              src="https://www.youtube.com/embed/gul5c2CYGQ4"
+              title="Top 50 Best Movies of All Time - IMDB"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                borderRadius: "8px",
+              }}
+            ></iframe>
+          </Box>
+        </Box>
       </Paper>
     </Container>
   );
