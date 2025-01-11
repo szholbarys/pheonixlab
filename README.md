@@ -35,10 +35,6 @@ git clone https://github.com/szholbarys/pheonixlab.git
 ```
 
 ```bash
-cd movie-app
-```
-
-```bash
 npm i
 ```
 
