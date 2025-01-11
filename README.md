@@ -86,6 +86,3 @@ This app uses the OMDB API to fetch movie data. You need an API key to interact 
 
 # Local Storage
 The app uses localStorage to persist the list of favorite movies. This ensures that even if the user refreshes the page or closes the app, their favorite movies remain saved.
-
-# Contributing
-If you would like to contribute to this project, feel free to:
