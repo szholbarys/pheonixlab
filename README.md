@@ -30,10 +30,8 @@ A movie discovery app built using React, MobX for state management, and Material
 
 # Getting Started
 
-git clone
-
 ```bash
-https://github.com/szholbarys/pheonixlab.git
+git clone https://github.com/szholbarys/pheonixlab.git
 ```
 
 ```bash
