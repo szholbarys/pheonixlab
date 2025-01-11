@@ -1,46 +1,119 @@
-# Getting Started with Create React App
+Movie App
+A movie discovery app built using React, MobX for state management, and Material UI for the user interface. This app allows users to search for movies, view movie details, add movies to favorites, and explore a list of top movies. The data is fetched from the OMDB API.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+Search for Movies: Search movies by title using the OMDB API.
+Movie Details: View detailed information about a specific movie including title, plot, actors, director, and IMDb rating.
+Favorites: Add or remove movies from your favorites list, with persistence across sessions using localStorage.
+Top Movies: Explore a curated list of top movies with detailed information.
+Responsive UI: Fully responsive UI, optimized for both desktop and mobile devices.
+Technologies Used
+React: The core JavaScript library for building the user interface.
+MobX: A state management library to handle global state for movies, favorites, and search results.
+Material UI: A component library for React that implements Google's Material Design.
+React Router: For navigation between pages (Movie List, Movie Details, Favorites).
+Axios: For making HTTP requests to the OMDB API.
+OMDB API: External API used for fetching movie data by title or IMDb ID.
+Project Structure
+bash
+Copy code
 
-## Available Scripts
+src/
+├── components/
+│   ├── movie-list/
+│   │   ├── movie-card.tsx      # Displays a single movie card
+│   │   ├── movie-list.tsx      # Displays a list of movie cards
+│   │   ├── search-bar.tsx      # Search input for searching movies
+│   │   └── top-movies.tsx      # Displays top 10 movies
+│   ├── movie-detail/           # Displays detailed information for a single movie
+│   ├── movie-list.tsx          # Displays the list of movies from search or top movies
+├── store/
+│   └── movie-store.ts          # MobX store that manages movie data, search, favorites, etc.
+├── pages/
+│   ├── MovieListPage.tsx       # Page that displays movie list (search or top movies)
+│   ├── MovieDetailPage.tsx     # Page that displays movie details
+│   └── FavoritesPage.tsx       # Page that displays favorite movies
+├── App.tsx                     # Main application file with routing and layout
+├── index.tsx                   # Entry point for the application
+└── .env                        # Configuration file (store API keys, etc.)
+Setup
+Clone the repository:
 
-In the project directory, you can run:
+bash
+Copy code
+git clone https://github.com/szholbarys/pheonixlab.git
+Navigate to the project folder:
 
-### `npm start`
+bash
+Copy code
+cd movie-app
+Install dependencies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+bash
+Copy code
+npm install
+Create a .env file in the root directory with the following contents:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+env
+Copy code
+REACT_APP_API_KEY=your-omdb-api-key
+Run the application:
 
-### `npm test`
+bash
+Copy code
+npm start
+The app will be running at http://localhost:3000.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Usage
+Movie List Page
+The Movie List page displays a list of movies.
+You can search for movies using the Search Bar. As you type, the list of movies updates based on the search query.
+If no search has been performed, the Top 10 Movies are displayed.
+Movie Detail Page
+Clicking on a movie title from the Movie List will navigate you to the Movie Detail page.
+This page displays detailed information about the selected movie, such as its plot, actors, director, and IMDb rating.
+You can also add or remove the movie from your Favorites.
+Favorites Page
+The Favorites Page displays a list of movies that you have added to your favorites.
+Movies in the favorites list are persistent across sessions (saved in localStorage).
+Toggle Favorite
+On both the Movie List and Movie Detail pages, you can toggle a movie as a favorite.
+When a movie is marked as a favorite, it is saved in localStorage and will persist across page reloads.
+State Management (MobX)
+MovieStore
+The MovieStore is a MobX store that manages the state of the app, including:
 
-### `npm run build`
+movies: A list of movies fetched from the OMDB API.
+topMovies: A list of top movies to display when no search is performed.
+currentMovie: The movie object that holds the details of the selected movie.
+favorites: A list of favorite movies saved in localStorage.
+query: The current search query.
+isSearchPerformed: A boolean indicating whether a search has been performed.
+Actions in MovieStore
+searchMovies(query: string): Fetches movies based on the search query from the OMDB API.
+fetchMovieDetails(id: string): Fetches the details of a single movie by its IMDb ID.
+fetchTopMovies(): Fetches a curated list of top movies.
+toggleFavorite(movie: any): Adds or removes a movie from the favorites list.
+isFavorite(id: string): Checks if a movie is marked as a favorite.
+getFavorites(): Returns the list of favorite movies.
+resetSearch(): Resets the search state.
+API Integration
+This app uses the OMDB API to fetch movie data. You need an API key to interact with the API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get an API key:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Go to OMDB API.
+Register for a free API key.
+Once you have your API key, place it in the .env file as REACT_APP_API_KEY.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Local Storage
+The app uses localStorage to persist the list of favorite movies. This ensures that even if the user refreshes the page or closes the app, their favorite movies remain saved.
 
-### `npm run eject`
+Contributing
+If you would like to contribute to this project, feel free to:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature-name).
+Make your changes and commit them (git commit -am 'Add new feature').
+Push to the branch (git push origin feature/your-feature-name).
+Open a pull request.
