@@ -1,8 +1,9 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import axios from "axios";
-
-const API_KEY = "7e59b8de";
-const BASE_URL = "http://www.omdbapi.com/";
+import {
+  searchMoviesApi,
+  fetchMovieDetailsApi,
+  fetchTopMoviesApi,
+} from "../service/api";
 
 class MovieStore {
   movies = [];
@@ -20,42 +21,24 @@ class MovieStore {
 
   async searchMovies(query: string) {
     this.query = query;
-    const response = await axios.get(
-      `${BASE_URL}?apikey=${API_KEY}&s=${query}`
-    );
+    const movies = await searchMoviesApi(query);
     runInAction(() => {
-      this.movies = response.data.Search || [];
+      this.movies = movies;
       this.isSearchPerformed = true;
     });
   }
 
   async fetchMovieDetails(id: string) {
-    const response = await axios.get(`${BASE_URL}?apikey=${API_KEY}&i=${id}`);
+    const movie = await fetchMovieDetailsApi(id);
     runInAction(() => {
-      this.currentMovie = response.data;
+      this.currentMovie = movie;
     });
   }
 
   async fetchTopMovies() {
-    const topMovieIds = [
-      "tt0111161",
-      "tt0068646",
-      "tt0071562",
-      "tt0468569",
-      "tt0050083",
-      "tt0108052",
-      "tt0167260",
-      "tt0110912",
-      "tt0060196",
-      "tt0120737",
-    ];
-    const topMoviesData = await Promise.all(
-      topMovieIds.map((id) =>
-        axios.get(`${BASE_URL}?apikey=${API_KEY}&i=${id}`)
-      )
-    );
+    const topMovies = await fetchTopMoviesApi();
     runInAction(() => {
-      this.topMovies = topMoviesData.map((response) => response.data);
+      this.topMovies = topMovies;
     });
   }
 
