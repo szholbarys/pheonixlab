@@ -4,29 +4,29 @@ A movie discovery app built using React, MobX for state management, and Material
 
 # Features
 
-### Search for Movies: Search movies by title using the OMDB API.
+ Search for Movies: Search movies by title using the OMDB API.
 
-### Movie Details: View detailed information about a specific movie including title, plot, actors, director, and IMDb rating.
+ Movie Details: View detailed information about a specific movie including title, plot, actors, director, and IMDb rating.
 
-### Favorites: Add or remove movies from your favorites list, with persistence across sessions using localStorage.
+ Favorites: Add or remove movies from your favorites list, with persistence across sessions using localStorage.
 
-### Top Movies: Explore a curated list of top movies with detailed information.
+ Top Movies: Explore a curated list of top movies with detailed information.
 
-### Responsive UI: Fully responsive UI, optimized for both desktop and mobile devices.
+ Responsive UI: Fully responsive UI, optimized for both desktop and mobile devices.
 
 # Technologies Used
 
-### React: The core JavaScript library for building the user interface.
+ React: The core JavaScript library for building the user interface.
 
-### MobX: A state management library to handle global state for movies, favorites, and search results.
+ MobX: A state management library to handle global state for movies, favorites, and search results.
 
-### Material UI: A component library for React that implements Google's Material Design.
+ Material UI: A component library for React that implements Google's Material Design.
 
-### React Router: For navigation between pages (Movie List, Movie Details, Favorites).
+ React Router: For navigation between pages (Movie List, Movie Details, Favorites).
 
-### Axios: For making HTTP requests to the OMDB API.
+ Axios: For making HTTP requests to the OMDB API.
 
-### OMDB API: External API used for fetching movie data by title or IMDb ID.
+ OMDB API: External API used for fetching movie data by title or IMDb ID.
 
 # Getting Started
 
